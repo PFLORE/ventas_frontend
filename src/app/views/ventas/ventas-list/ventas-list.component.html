@@ -1,0 +1,51 @@
+<div class="table-responsive">
+  <div class="card">
+    <div class="card-body">
+      <div class="row">
+        <div class="col-md-2 mb-2">
+          <label for="nombre" class="form-label">Fecha</label>
+          <input type="date" class="form-control" placeholder="Fecha" [(ngModel)] = "fecha">
+        </div>
+        <div class="col-md-1 mt-4">
+          <button class="btn btn-info"
+                        data-bs-toggle="modal"
+                        (click) = "getListar()"
+                >Buscar
+                </button>
+        </div>
+        <div class="col-md-12">
+          <table class="table table-bordered">
+            <thead>
+            <tr>
+              <th>Cliente</th>
+              <th>Fecha</th>
+              <th>Total</th>
+              <th>Ver detalle</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor = "let arr of lista">
+              <td>{{ arr.cliente.nombres + ' ' + arr.cliente.apellidos }}</td>
+              <td>{{ arr.fecha }}</td>
+              <td>{{ arr.total }}</td>
+              <td>
+                <button class="btn btn-info"
+                        data-bs-toggle="modal" data-bs-target="#exampleModal"
+                        (click)="verDetalle(arr.id)"
+                >Ver
+                </button>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+
+<app-ventas-detalle [detalles] = "detalle" #childVD>
+</app-ventas-detalle>

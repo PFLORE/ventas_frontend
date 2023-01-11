@@ -1,0 +1,69 @@
+<div class="modal modal-lg fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Detalle de Venta</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <!-- <form [formGroup] = "form"> -->
+
+          <div class="row">
+            <!-- <ng-container [formGroup] = "formCliente"> -->
+              <div class="col-md-4 mb-2 form-outline">
+                <label for="nombre" class="form-label">Nombres</label>
+                <input class="form-control"
+                id="nombre"
+                placeholder="Nombres" [(ngModel)] = "detalle.cliente.nombres">
+              </div>
+              <div class="col-md-4 mb-2">
+                <label for="nombre" class="form-label">Apellidos</label>
+                <input class="form-control" placeholder="Apellidos" [(ngModel)] = "detalle.cliente.apellidos">
+              </div>
+              <div class="col-md-4 mb-2">
+                <label for="nombre" class="form-label">DNI</label>
+                <input class="form-control" placeholder="DNI" [(ngModel)] = "detalle.cliente.dni">
+              </div>
+              <div class="col-md-4 mb-2">
+                <label for="nombre" class="form-label">Telefono</label>
+                <input class="form-control" placeholder="Telefono" [(ngModel)] = "detalle.cliente.telefono">
+              </div>
+              <div class="col-md-4 mb-2">
+                <label for="nombre" class="form-label">Email</label>
+                <input class="form-control" placeholder="Email" [(ngModel)] = "detalle.cliente.email">
+              </div>
+            <!-- </ng-container> -->
+            
+            <div class="col-md-12 mb-2">
+              <table class="table table-bordered">
+                <thead>
+                  <th>Producto</th>
+                  <th>Precio Unitario</th>
+                  <th>Cantidad</th>
+                  <th>SubTotal</th>
+                </thead>
+                <tbody>
+                  <tr *ngFor = "let arr of detalle.detalleVentas" >
+                    <td>{{ arr.producto.nombre }}</td>
+                    <td>{{ arr.producto.precio }}</td>
+                    <td>{{ arr.cantidad }}</td>
+                    <td>{{ arr.subTotal }}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="col-md-6 mb-2">
+              <label for="nombre" class="form-label">Fecha</label>
+              <input class="form-control" placeholder="Fecha" [(ngModel)] = "detalle.fecha">
+            </div>
+            <div class="col-md-6 mb-2">
+              <label for="nombre" class="form-label">Total</label>
+              <input class="form-control" placeholder="Total" [(ngModel)] = "detalle.total">
+            </div>
+          </div>
+          
+        <!-- </form> -->
+
+      </div>
+    </div>
+  </div>
